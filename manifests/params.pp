@@ -6,6 +6,7 @@ class ssh::params {
             $package_server       = 'openssh-server'
             $service_name         = 'ssh'
             $path_ssh_known_hosts = '/etc/ssh/ssh_known_hosts'
+            $path_sshd_config     = '/etc/ssh/sshd_config'
         }
         default: {
             fail("Unsupported platform: ${::operatingsystem}")
