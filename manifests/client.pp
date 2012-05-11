@@ -14,4 +14,20 @@ class ssh::client {
             group  => "root";
     }
 
+    resources {
+        "sshkey": purge => true;
+    }
+
+    Sshkey <<| tag == "for-env-${::environment}" |>> {
+        ensure => present,
+    }
+
+}
+
+class ssh::client::allenv inherits ssh::client {
+    
+    Sshkey <<| |>> {
+        ensure => present,
+    }
+
 }

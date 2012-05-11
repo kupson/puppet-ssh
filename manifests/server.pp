@@ -44,4 +44,13 @@ class ssh::server {
                          "set AuthorizedKeysFile ${ssh::params::path_authorized_keys}/%u",
                        ];
     }
+
+    @@sshkey {
+         $::fqdn:
+            type         => 'ssh-rsa',
+            key          => $::sshrsakey,
+            host_aliases => [ $::hostname, $::ipaddress, ],
+            tag          => "for-env-${::environment}";
+    }
+
 }
