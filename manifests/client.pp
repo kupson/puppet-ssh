@@ -1,3 +1,17 @@
+# Class: ssh::client
+#
+# This module install ssh client and import all keys from same environment.
+#
+# Parameters:
+#
+# Actions:
+#
+# Requires:
+#
+# Sample Usage:
+#
+#   include ssh::client
+#
 class ssh::client {
     include ssh::params
 

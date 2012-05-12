@@ -1,3 +1,23 @@
+# Class: ssh::server
+#
+# This module install ssh server and export ssh host key.
+#   SSH configuration is customized:
+#     - only protocol 2, IPv4
+#     - only PubKey authorization allowed
+#     - internal sftp subsystem
+#     - user authorized_keys files managed by root
+#     - some other tweaks
+#
+# Parameters:
+#
+# Actions:
+#
+# Requires:
+#
+# Sample Usage:
+#
+#   include ssh::server
+#
 class ssh::server {
     include ssh::params
 

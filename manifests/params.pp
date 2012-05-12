@@ -1,3 +1,15 @@
+# Class: ssh::params
+#
+# This class sets platform specific variables for ssh:: namespace.
+#
+# Parameters:
+#
+# Actions:
+#
+# Requires:
+#
+# Sample Usage:
+#
 class ssh::params {
 
     case $::operatingsystem {
