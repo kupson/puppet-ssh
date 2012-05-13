@@ -29,7 +29,14 @@ class ssh::client {
     }
 
     resources {
-        "sshkey": purge => true;
+        'sshkey': purge => true;
+    }
+
+    sshkey {
+         'localhost':
+            type         => 'ssh-rsa',
+            key          => $::sshrsakey,
+            host_aliases => '127.0.0.1';
     }
 
     Sshkey <<| tag == "for-env-${::environment}" |>> {
