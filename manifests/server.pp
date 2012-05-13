@@ -40,7 +40,7 @@ class ssh::server {
             ensure  => directory,
             owner   => 'root',
             group   => 'root',
-            mode    => 0711,
+            mode    => '0711',
             require => Package[$ssh::params::package_server];
     }
 
