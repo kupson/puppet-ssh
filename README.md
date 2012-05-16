@@ -19,25 +19,24 @@ Sshd configuration:
 
 ## Usage
 
-# ssh
+### ssh
 Install ssh client and server.
 
     include ssh
 
-
-# ssh::client
+### ssh::client
 Install ssh client and export host key for current `$environment`.
 Add 'localhost' key to known hosts.
 
     include ssh::client
 
-# ssh::client::allenv
+### ssh::client::allenv
 Class ssh::client modified to import ssh host keys from all environments.
 Suitable for puppet master host or other all-environment nodes.
 
     include ssh::client::allenv
 
-# ssh::server
+### ssh::server
 This module install ssh server and configure it as mentioned in module description.
 Host key is exported with `for-env-${environment}` tag.
 
