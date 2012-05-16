@@ -1,13 +1,13 @@
 # Ssh module for Puppet
 
 ## Description
-This module installs and configure ssh client/server.
+This module installs and configures ssh client/server.
 
 Some features:
 
-- export/import ssh host keys based on `$environment`
-- only root can manage ssh_authorized_keys for users
-- purge unknown sshkey resources
+- export/import ssh host keys based on `$environment` Puppet variable
+- only root can manage ssh_authorized_keys for users (`/etc/ssh/authorized_keys/<username>`)
+- purges unknown sshkey resources
 
 Sshd configuration:
 
@@ -21,30 +21,27 @@ Sshd configuration:
 
 # ssh
 Install ssh client and server.
->
-> include ssh
->
+
+    include ssh
+
 
 # ssh::client
 Install ssh client and export host key for current `$environment`.
 Add 'localhost' key to known hosts.
->
-> include ssh::client
->
+
+    include ssh::client
 
 # ssh::client::allenv
 Class ssh::client modified to import ssh host keys from all environments.
 Suitable for puppet master host or other all-environment nodes.
->
-> include ssh::client::allenv
->
+
+    include ssh::client::allenv
 
 # ssh::server
 This module install ssh server and configure it as mentioned in module description.
 Host key is exported with `for-env-${environment}` tag.
->
-> include ssh::server
->
+
+    include ssh::server
 
 ## ssh::params notes
 Provide system dependent variables for other classes in this module.
