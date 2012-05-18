@@ -21,6 +21,14 @@ class ssh::params {
             $path_sshd_config     = '/etc/ssh/sshd_config'
             $path_authorized_keys = '/etc/ssh/authorized_keys'
         }
+        'centos', 'redhat': {
+            $package_client       = 'openssh-clients'
+            $package_server       = 'openssh-server'
+            $service_name         = 'sshd'
+            $path_ssh_known_hosts = '/etc/ssh/ssh_known_hosts'
+            $path_sshd_config     = '/etc/ssh/sshd_config'
+            $path_authorized_keys = '/etc/ssh/authorized_keys'
+        }
         default: {
             fail("Unsupported platform: ${::operatingsystem}")
         }
