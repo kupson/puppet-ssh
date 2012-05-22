@@ -33,7 +33,7 @@ class ssh::client {
     }
 
     sshkey {
-         'localhost':
+        'localhost':
             type         => 'ssh-rsa',
             key          => $::sshrsakey,
             host_aliases => '127.0.0.1';

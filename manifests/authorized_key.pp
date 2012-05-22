@@ -3,7 +3,7 @@
 # Wrapper for ssh_authorized_key resource customized to ssh module.
 #
 # Parameters:
-# 
+#
 #   [*ensure*]      - *present*|absent
 #
 # Actions:
@@ -23,10 +23,10 @@
 # }
 #
 define ssh::authorized_key (
-    $ensure = 'present',
     $user,
-    $type   = 'rsa',
-    $key
+    $key,
+    $ensure = 'present',
+    $type   = 'rsa'
 ) {
 
     $target = "${ssh::params::path_authorized_keys}/${user}"
