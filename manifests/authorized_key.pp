@@ -12,10 +12,10 @@
 #
 # Sample Usage:
 #
-# include ssh
+# include ssh::server
 #
 # ssh::authorized_key {
-#   "demo_access":
+#   'demo_access':
 #     ensure => present,
 #     user   => 'demo',
 #     type   => 'rsa',
