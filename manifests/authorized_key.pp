@@ -46,11 +46,11 @@ define ssh::authorized_key (
     ssh_authorized_key {
         $title:
             ensure  => $ensure,
-            user    => $user,
+            user    => 'root',
             target  => $target,
             type    => $type,
             key     => $key,
-            require => File[$target];
+            notify  => File[$target];
     }
 
 }
