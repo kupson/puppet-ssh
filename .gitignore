@@ -15,5 +15,8 @@ tmtags
 tags
 
 ## Puppet module
-pkg/
-metadata.json
+/pkg/
+/metadata.json
+
+## Data directory
+/data/
