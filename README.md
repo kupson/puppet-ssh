@@ -42,22 +42,18 @@ Host key is exported with `for-env-${environment}` tag.
 
     include ssh::server
 
-### ssh::authorized_key
-Wrapper for ssh_authorized_key type. Put key into `/etc/ssh/authorized_keys` with proper permissions.
-
-    include ssh::server
-
-    ssh::authorized_key {
-      'demo_access':
-        ensure => present,
-        user   => 'demo',
-        type   => 'rsa',
-        key    => '<key_data>';
-    }
-
 ## ssh::params notes
 Provide system dependent variables for other classes in this module.
 
 - Debian (tested on squeeze)
 - Ubuntu (untested, should work)
+
+## Providers
+
+### ssh_authorized_key (parsed_systemdir)
+New provider for ssh_authorized_key type that put authorized_keys files with
+proper permissions in `/etc/ssh/authorized_keys` directory.
+
+    File mode and ownership example:
+    -rw-r----- 1 root demo  595 May 24 20:34 /etc/ssh/authorized_keys/demo
 

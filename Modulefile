@@ -1,5 +1,5 @@
 name    'kupson-ssh'
-version '0.0.2'
+version '0.0.3'
 source 'git://github.com/kupson/puppet-ssh.git'
 author 'Rafał Kupka'
 license 'Apache'
