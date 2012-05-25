@@ -13,7 +13,7 @@
 #   include ssh::client::allenv
 #
 class ssh::client::allenv inherits ssh::client {
-    
+
     Sshkey <<| |>> {
         ensure => present,
     }

@@ -51,22 +51,22 @@ class ssh::server {
             incl    => $ssh::params::path_sshd_config,
             notify  => Service[$ssh::params::service_name],
             changes => [
-                         'set Protocol 2',
-                         'set AddressFamily inet',
-                         'set LogLevel VERBOSE',
-                         'set UsePrivilegeSeparation yes',
-                         'set PermitEmptyPasswords no',
-                         'set PermitRootLogin without-password',
-                         'set PubkeyAuthentication yes',
-                         'set ChallengeResponseAuthentication no',
-                         'set PasswordAuthentication no',
-                         'set Subsystem/sftp internal-sftp',
-                         "set AuthorizedKeysFile ${ssh::params::path_authorized_keys}/%u",
-                       ];
+                'set Protocol 2',
+                'set AddressFamily inet',
+                'set LogLevel VERBOSE',
+                'set UsePrivilegeSeparation yes',
+                'set PermitEmptyPasswords no',
+                'set PermitRootLogin without-password',
+                'set PubkeyAuthentication yes',
+                'set ChallengeResponseAuthentication no',
+                'set PasswordAuthentication no',
+                'set Subsystem/sftp internal-sftp',
+                "set AuthorizedKeysFile ${ssh::params::path_authorized_keys}/%u",
+              ];
     }
 
     @@sshkey {
-         $::fqdn:
+        $::fqdn:
             type         => 'ssh-rsa',
             key          => $::sshrsakey,
             host_aliases => [ $::hostname, $::ipaddress, ],
