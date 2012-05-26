@@ -32,13 +32,21 @@ Puppet::Type.type(:ssh_authorized_key).provide(
     :rts      => /^\s+/,
     :match    => /^(?:(.+) )?(\d+) (\d+) (\d+)(?: (.+))?$/
 
-  # Set new target parameter in /etc/ssh/authorized_keys/ directory
+  # Hijack code execution to monkey patch out type object
   def self.prefetch(record)
     record.each do |k,rec|
-      user = rec.should(:user)
-      if rec.parameters[:target].value == File.expand_path("~#{user}/.ssh/authorized_keys") then
-        rec.parameters[:target].value = "/etc/ssh/authorized_keys/#{user}"
+
+      # Set new target parameter in /etc/ssh/authorized_keys/ directory
+      class <<rec.parameters[:target]
+        def should
+          return super if defined?(@should) and @should[0] != :absent
+
+          return nil unless user = resource[:user]
+
+          return "/etc/ssh/authorized_keys/#{user}"
+        end
       end
+
     end
     super
   end
