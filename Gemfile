@@ -3,6 +3,8 @@ puppetversion = ENV.key?('PUPPET_VERSION') ? "= #{ENV['PUPPET_VERSION']}" : ['>=
  
 gem 'puppet', puppetversion
  
+gem 'puppet-lint'
+
 group :test do
   gem 'rake', '>= 0.9.0'
   gem 'rspec', '>= 2.8.0'
