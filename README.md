@@ -1,5 +1,6 @@
 # travis-ci build status
-!https://travis-ci.org/[YOUR_GITHUB_USERNAME]/[YOUR_PROJECT_NAME].png!":https://travis-ci.org/rtucker-mozilla/puppet-ssh1
+[![Build Status](https://travis-ci.org/rtucker-mozilla/puppet-ssh-1.png)](https://travis-ci.org/rtucker-mozilla/puppet-ssh-1)
+
 # Ssh module for Puppet
 
 ## Description
