@@ -59,7 +59,8 @@ class ssh::server {
                 'set PermitRootLogin without-password',
                 'set PubkeyAuthentication yes',
                 'set ChallengeResponseAuthentication no',
-                'set PasswordAuthentication no',
+                #'set PasswordAuthentication no',
+                'set PasswordAuthentication yes',
                 'set Subsystem/sftp internal-sftp',
                 "set AuthorizedKeysFile ${ssh::params::path_authorized_keys}/%u",
               ];
