@@ -34,7 +34,6 @@ class ssh::params {
             }
         }
     } else {
-
         case $::operatingsystem {
             'ubuntu', 'debian': {
                 $package_client       = 'openssh-client'
