@@ -1,4 +1,4 @@
-node 'localhost.localdomain' { 
+node 'localhost.localdomain' {
     include ssh
     include ssh::client::allenv
 
@@ -14,7 +14,7 @@ node 'localhost.localdomain' {
             user     => 'root',
             provider => 'parsed_systemdir',
             require  => User['thedummyuser'];
-    }  
+    }
 
     ssh_authorized_key {
         'thedummyuser@localhost.localdomain':
@@ -23,5 +23,5 @@ node 'localhost.localdomain' {
             user     => 'root',
             provider => 'parsed_systemdir',
             require  => User['thedummyuser'];
-    }  
+    }
 }
