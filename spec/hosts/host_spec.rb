@@ -25,6 +25,10 @@ describe 'localhost.localdomain' do
     end
 
     describe 'it should contain an authorized_key_file for root' do
-        it { should contain_ssh_authorized_key('root@localhost.localdomain') }
-    end
+        it { should contain_ssh_authorized_key('root@localhost.localdomain').with(
+                'user' => 'root',
+                'key' => 'AAAA',
+                'type' => 'rsa',
+                'provider' => 'parsed_systemdir') }
+        end
 end
