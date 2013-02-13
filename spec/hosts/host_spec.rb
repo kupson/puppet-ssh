@@ -1,8 +1,9 @@
 require 'spec_helper'
 
 describe 'localhost.localdomain' do
-    let (:node){ 'localhost.localdomain' }
-    let (:facts) {{  :osfamily => 'debian', :operatingsystem => 'ubuntu' }}
+    let (:node) { 'localhost.localdomain' }
+    let (:facts) {{ :osfamily => 'debian', :operatingsystem => 'ubuntu' }}
+
     describe 'it should contain the dummy user' do
         it { should contain_user('thedummyuser') }
     end
@@ -26,5 +27,4 @@ describe 'localhost.localdomain' do
     describe 'it should contain an authorized_key_file for root' do
         it { should contain_ssh_authorized_key('root@localhost.localdomain') }
     end
-  # your tests go here
 end
