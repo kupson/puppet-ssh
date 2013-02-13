@@ -1,4 +1,8 @@
-node 'localhost.localdomain' {
-    include ssh
+node default {
+    puts 'loaded'
+    include ssh::server
+    user {'thedummyuser':
+        ensure => present;
+    }
 
 }
