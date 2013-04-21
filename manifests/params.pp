@@ -29,6 +29,14 @@ class ssh::params {
             $path_sshd_config     = '/etc/ssh/sshd_config'
             $path_authorized_keys = '/etc/ssh/authorized_keys'
         }
+        'archlinux': {
+            $package_client       = 'openssh'
+            $package_server       = 'openssh'
+            $service_name         = 'sshd'
+            $path_ssh_known_hosts = '/etc/ssh/ssh_known_hosts'
+            $path_sshd_config     = '/etc/ssh/sshd_config'
+            $path_authorized_keys = '/etc/ssh/authorized_keys'
+        }
         default: {
             fail("Unsupported platform: ${::operatingsystem}")
         }
